@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+
+    steps:
+      - name: Write env file
+        run: |
+          echo "APP_ENV=beta" > .env
+      - name: Read env file
+        run: |
+          cat .env
+      
+        
