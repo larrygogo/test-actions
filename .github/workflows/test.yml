@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: Write env file
         run: |
-          echo "APP_ENV=beta" > .env
+          for var_i in ${{ vars }}; do
+            echo "$var_i=$var_i" >> .env
+          done
       - name: Read env file
         run: |
           cat .env
