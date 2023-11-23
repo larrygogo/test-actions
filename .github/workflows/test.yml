@@ -14,8 +14,8 @@ jobs:
     steps:
       - name: Write env file
         run: |
-          for var_i in ${{ vars }}; do
-            echo "$var_i=$var_i" >> .env
+          for var_i in $(vars); do
+            echo "${var_i}=${var_i}" >> .env
           done
       - name: Read env file
         run: |
